@@ -1,0 +1,34 @@
+service: pexels-express-api
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    API_KEY: ${param:API_KEY, env:API_KEY}
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: "ANY {proxy+}"
+
+  search:
+    handler: index.handler
+    events:
+      - http: "GET /search/{proxy+}"
+
+  curated:
+    handler: index.handler
+    events:
+      - http: "GET /curated/{proxy+}"
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+custom:
+  serverless-offline:
+    httpPort: 9000
+    autoReload: true
