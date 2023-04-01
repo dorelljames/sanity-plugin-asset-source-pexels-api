@@ -2,6 +2,10 @@ const serverless = require("serverless-http");
 const express = require("express");
 const app = express();
 const { createClient } = require("pexels");
+const cors = require("cors");
+
+// setup cors before any routes are defined
+app.use(cors());
 
 const client = createClient(process.env.API_KEY);
 
