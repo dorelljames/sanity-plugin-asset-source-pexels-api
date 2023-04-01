@@ -2,19 +2,11 @@ service: pexels-express-api
 frameworkVersion: "3"
 app: pexels-express-api
 
-useDotenv: true
-
 provider:
   name: aws
   runtime: nodejs14.x
   environment:
-    API_KEY: ${param:API_KEY, env:API_KEY}
-
-params:
-  production:
-    API_KEY: ${param:API_KEY, env:API_KEY}
-  dev:
-    API_KEY: ${param:API_KEY, env:API_KEY}
+    API_KEY: ${param:API_KEY}
 
 functions:
   api:
