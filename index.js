@@ -4,6 +4,9 @@ const app = express();
 const { createClient } = require("pexels");
 const cors = require("cors");
 
+// setup cors before any routes are defined
+app.use(cors());
+
 const client = createClient(process.env.API_KEY);
 
 app.get("/search", (req, res) => {
@@ -29,7 +32,6 @@ app.get("/curated", (req, res) => {
     .then((result) => res.status(200).json(result));
 });
 
-app.use(cors());
 app.use((req, res, next) => {
   return res.status(404).json({
     error: "Not Found",
