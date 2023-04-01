@@ -1,5 +1,6 @@
 service: pexels-express-api
 frameworkVersion: "3"
+app: pexels-express-api
 
 provider:
   name: aws
