@@ -10,6 +10,12 @@ provider:
   environment:
     API_KEY: ${param:API_KEY, env:API_KEY}
 
+params:
+  production:
+    API_KEY: ${param:API_KEY, env:API_KEY}
+  dev:
+    API_KEY: ${param:API_KEY, env:API_KEY}
+
 functions:
   api:
     handler: index.handler
