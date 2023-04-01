@@ -2,9 +2,11 @@ service: pexels-express-api
 frameworkVersion: "3"
 app: pexels-express-api
 
+useDotenv: true
+
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs14.x
   environment:
     API_KEY: ${param:API_KEY, env:API_KEY}
 
@@ -27,7 +29,6 @@ functions:
 
 plugins:
   - serverless-offline
-  - serverless-dotenv-plugin
 
 custom:
   serverless-offline:
