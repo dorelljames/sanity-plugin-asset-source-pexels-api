@@ -26,7 +26,7 @@ This template configures a single function, `api`, which is responsible for hand
 Install dependencies with:
 
 ```
-npm install
+yarn install
 ```
 
 and then deploy with:
